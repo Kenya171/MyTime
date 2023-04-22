@@ -10,9 +10,17 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
             NavigationStack{
-                VStack {
-                Text("タイマー画面")
-            }
+        //　奥から手前方向にレイアウト
+            ZStack{
+                //背景画像
+                Image("backgroundTimer")
+                //リサイズする
+                    .resizable()
+                //セーフエリアを超えて画面全体に配置します
+                    .ignoresSafeArea()
+                //アスペクト比(縦横比)を維持して短辺基準に収まるようにする
+                    .scaledToFit()
+                }//ZStackここまで
             //ナビゲーションにボタンを配置
                 .toolbar{
                 //ナビゲーションバーの右にボタンを追加
